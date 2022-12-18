@@ -1,5 +1,6 @@
 import RandomImageButton from "../components/RandomImageButton";
 import RandomImage from "../components/RandomImage";
+import RandomImageFetch from "../components/RandomImageFetch";
 import styled from "styled-components";
 import { useState } from "react";
 
@@ -12,7 +13,7 @@ export default function Home() {
   return (
     <StyledMain>
       {image ? (
-        <RandomImage setImage={setImage}></RandomImage>
+        <RandomImage setImage={setImage} />
       ) : (
         <RandomImageButton randomImage={handleRandomImage} />
       )}

@@ -1,17 +1,22 @@
 import styled from "styled-components";
 import Image from "next/image";
+import { useFetch } from "../helpers/useFetch";
 
-export default function RandomImage({ setImage }) {
-  function getRandomNumber() {
-    return Math.floor(Math.random() * 99);
-  }
-
-  const url =
-    "https://source.unsplash.com/collection/1270951/" + getRandomNumber();
-
+export default function RandomImageFetch({ setImage }) {
+  const image = useFetch(
+    "https://api.unsplash.com/photos/random/?client_id=WKBB_hRTpI7rLsirREapzkzb5LnFcgG1uPiZBv1qBQ0"
+  );
+  console.log(image);
+  console.log(image.urls);
   return (
     <StyledImagePage>
-      <Image src={url} alt="cute animal" width={300} height={300} priority />
+      <Image
+        src="https://source.unsplash.com/random/500x500?animal"
+        alt="cute animal"
+        width={300}
+        height={300}
+        priority
+      />
       <button onClick={() => setImage(false)}>back</button>
     </StyledImagePage>
   );
