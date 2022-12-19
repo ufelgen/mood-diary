@@ -1,6 +1,7 @@
 import RandomImageButton from "../components/RandomImageButton";
 import RandomImage from "../components/RandomImage";
-import RandomImageFetch from "../components/RandomImageFetch";
+import Greeting from "../components/Greeting";
+import { getGreeting } from "../helpers/getGreeting";
 import styled from "styled-components";
 import { useState } from "react";
 
@@ -10,12 +11,17 @@ export default function Home() {
     setImage(true);
   }
 
+  const greeting = getGreeting();
+
   return (
     <StyledMain>
       {image ? (
         <RandomImage setImage={setImage} />
       ) : (
-        <RandomImageButton randomImage={handleRandomImage} />
+        <>
+          <Greeting greeting={greeting} />
+          <RandomImageButton randomImage={handleRandomImage} />
+        </>
       )}
     </StyledMain>
   );
@@ -23,6 +29,7 @@ export default function Home() {
 
 const StyledMain = styled.main`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export default function RandomImageButton({ randomImage }) {
-  return <StyledButton onClick={randomImage}>click me!</StyledButton>;
+  return <StyledButton onClick={randomImage}>hier klicken!</StyledButton>;
 }
 
 const StyledButton = styled.button`

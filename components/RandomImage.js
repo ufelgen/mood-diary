@@ -1,15 +1,14 @@
 import styled from "styled-components";
 import Image from "next/image";
-import { ST } from "next/dist/shared/lib/utils";
 
 export default function RandomImage({ setImage }) {
   function getRandomNumber() {
     // adjust number according to number of images in collection
-    return Math.floor(Math.random() * 258);
+    return Math.floor(Math.random() * 366);
   }
 
   const url =
-    "https://source.unsplash.com/collection/1270951/" + getRandomNumber();
+    "https://source.unsplash.com/collection/181581/" + getRandomNumber();
   // adjust collection number
 
   return (
@@ -23,7 +22,7 @@ export default function RandomImage({ setImage }) {
           priority
         />{" "}
       </StyledImageContainer>
-      <button onClick={() => setImage(false)}>back</button>
+      <button onClick={() => setImage(false)}>zurück</button>
     </StyledImagePage>
   );
 }
