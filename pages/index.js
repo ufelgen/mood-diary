@@ -33,5 +33,5 @@ const StyledMain = styled.main`
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: darkcyan;
+  background-color: black;
 `;
