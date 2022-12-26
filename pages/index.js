@@ -37,7 +37,7 @@ const StyledMain = styled.main`
   background: linear-gradient(
     0deg,
     rgba(2, 0, 36, 1) 0%,
-    rgba(17, 78, 29, 1) 38%,
-    rgba(218, 218, 218, 1) 100%
+    rgba(17, 34, 78, 1) 38%,
+    rgba(94, 102, 161, 1) 100%
   );
 `;
