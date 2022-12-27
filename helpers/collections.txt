@@ -12,6 +12,8 @@ https://unsplash.com/collections/2254180/the-colorful-collection
 https://unsplash.com/collections/1143269/christmas
 26.12.2022
 https://unsplash.com/collections/778914/christmas-traditions
+27.12.2022
+https://unsplash.com/collections/220381/earth-is-awesome
 
 
 
@@ -19,7 +21,6 @@ https://unsplash.com/collections/778914/christmas-traditions
 unused:
 https://unsplash.com/collections/894/earth-%26-planets
 https://unsplash.com/collections/3678981/lego
-https://unsplash.com/collections/220381/earth-is-awesome
 https://unsplash.com/collections/573009/micro-worlds
 https://unsplash.com/collections/540518/spectrums
 https://unsplash.com/collections/2489501/personable-pets
