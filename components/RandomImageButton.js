@@ -5,7 +5,7 @@ export default function RandomImageButton({ randomImage }) {
 }
 
 const StyledButton = styled.button`
-  background-color: hotpink;
+  background-color: darkcyan;
   color: white;
   padding: 2rem;
   border: 1px solid darkmagenta;

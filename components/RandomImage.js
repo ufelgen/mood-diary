@@ -4,11 +4,11 @@ import Image from "next/image";
 export default function RandomImage({ setImage }) {
   function getRandomNumber() {
     // adjust number according to number of images in collection
-    return Math.floor(Math.random() * 112);
+    return Math.floor(Math.random() * 258);
   }
 
   const url =
-    "https://source.unsplash.com/collection/220381/" + getRandomNumber();
+    "https://source.unsplash.com/collection/2489501/" + getRandomNumber();
   // adjust collection number
 
   return (
@@ -41,7 +41,7 @@ const StyledImagePage = styled.section`
   align-items: center;
   justify-content: center;
   button {
-    background-color: hotpink;
+    background-color: darkcyan;
     color: white;
     padding: 1rem;
     border: 1px solid darkmagenta;
