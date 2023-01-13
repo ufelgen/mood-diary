@@ -33,11 +33,12 @@ const StyledMain = styled.main`
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: rgb(104, 4, 230);
+  background: rgb(5, 0, 10);
   background: linear-gradient(
     0deg,
-    rgba(104, 4, 230, 1) 0%,
-    rgba(219, 10, 188, 1) 100%,
+    rgba(5, 0, 10, 1) 0%,
+    rgba(171, 11, 153, 1) 70%,
+    rgba(213, 108, 197, 1) 100%,
     rgba(194, 201, 255, 1) 100%
   );
 `;

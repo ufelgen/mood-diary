@@ -12,7 +12,7 @@ const StyledGreeting = styled.h1`
   background-color: darkmagenta;
   color: white;
   border: 1px solid hotpink;
-  padding: 3px;
+  padding: 30px;
   margin-bottom: 177px;
   text-align: center;
 `;
