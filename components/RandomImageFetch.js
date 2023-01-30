@@ -6,8 +6,7 @@ export default function RandomImageFetch({ setImage }) {
   const image = useFetch(
     "https://api.unsplash.com/photos/random/?client_id=WKBB_hRTpI7rLsirREapzkzb5LnFcgG1uPiZBv1qBQ0"
   );
-  console.log(image);
-  console.log(image.urls);
+
   return (
     <StyledImagePage>
       <Image

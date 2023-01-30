@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Image from "next/image";
 
-export default function RandomImage({ setImage }) {
+export default function RandomImage({ randomImage }) {
   function getRandomNumber() {
     // adjust number according to number of images in collection
     return Math.floor(Math.random() * 766);
@@ -22,7 +22,7 @@ export default function RandomImage({ setImage }) {
           priority
         />{" "}
       </StyledImageContainer>
-      <button onClick={() => setImage(false)}>zurück</button>
+      <button onClick={randomImage}>zurück</button>
     </StyledImagePage>
   );
 }
