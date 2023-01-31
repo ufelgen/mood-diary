@@ -5,8 +5,11 @@ import Footer from "../../components/Footer";
 import BelowCalendar from "../../components/BelowCalendar";
 import { useState } from "react";
 import fetchData from "../../helpers/fetchData";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 export default function CalendarPage({ allEntries = [], onAllEntries }) {
+  const { data: session } = useSession();
+
   const [date, setDate] = useState(new Date());
   const [showForm, setShowForm] = useState(false);
 
@@ -69,28 +72,63 @@ export default function CalendarPage({ allEntries = [], onAllEntries }) {
 
   return (
     <StyledCalenderPage>
-      <StyledCalendarContainer>
-        <Calendar
-          locale="de-DE"
-          tileClassName={tileClassName}
-          value={date}
-          onClickDay={(value) => handleShowForm(value)}
-        />
-      </StyledCalendarContainer>
-      {showForm && (
-        <BelowCalendar
-          allEntries={allEntries}
-          date={date}
-          onUpdateEntries={updateEntries}
-          onHideForm={handleHideForm}
-          onDeleteEntry={deleteEntry}
-        />
+      {session ? (
+        <>
+          <StyledCalendarContainer>
+            <Calendar
+              locale="de-DE"
+              tileClassName={tileClassName}
+              value={date}
+              onClickDay={(value) => handleShowForm(value)}
+            />
+          </StyledCalendarContainer>
+          {showForm && (
+            <BelowCalendar
+              allEntries={allEntries}
+              date={date}
+              onUpdateEntries={updateEntries}
+              onHideForm={handleHideForm}
+              onDeleteEntry={deleteEntry}
+            />
+          )}
+          <ButtonContainer>
+            <StyledLogoutButton onClick={signOut}>abmelden</StyledLogoutButton>
+          </ButtonContainer>
+        </>
+      ) : (
+        <ButtonContainer>
+          <StyledLoginButton onClick={() => signIn()}>
+            anmelden
+          </StyledLoginButton>
+        </ButtonContainer>
       )}
+
       <Footer />
     </StyledCalenderPage>
   );
 }
 
+const StyledLoginButton = styled.button`
+  padding: 1rem;
+  margin: 1rem;
+  align-self: center;
+  justify-self: center;
+  color: white;
+  background-color: var(--primary);
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 2rem;
+`;
+
+const StyledLogoutButton = styled(StyledLoginButton)`
+  font-size: 1rem;
+`;
+const ButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 const StyledCalenderPage = styled.main`
   height: 100vh;
   margin-bottom: 20vh;

@@ -1,21 +1,22 @@
 import dbConnect from "../../../db/dbConnect";
 import Entry from "../../../db/models/Entry";
-//import { getSession } from "next-auth/react";
+import { getSession } from "next-auth/react";
 
 export default async function handler(req, res) {
   await dbConnect();
 
-  //const session = await getSession({ req });
-  //const email = session?.user.email;
-  // if (!email) {
-  //  return res.status(401).json({ message: "not authorized. please log in." });
-  // }
+  const session = await getSession({ req });
+  const email = session?.user.email;
+  if (!email) {
+    return res.status(401).json({ message: "not authorized. please log in." });
+  }
 
   if (req.method === "GET") {
-    const entries = await Entry.find();
+    const entries = await Entry.find({ user: email });
 
     const allEntries = entries.map((entry) => {
       return {
+        user: entry.user,
         id: entry._id,
         date: entry.date,
         mood: entry.mood,
@@ -26,7 +27,7 @@ export default async function handler(req, res) {
 
     res.status(200).json(allEntries);
   } else if (req.method === "POST") {
-    const data = req.body;
+    const data = { ...req.body, user: email };
 
     try {
       const newEntry = await Entry.create(data);
