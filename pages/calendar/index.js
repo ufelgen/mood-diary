@@ -30,8 +30,29 @@ export default function CalendarPage({ allEntries = [], onAllEntries }) {
 
   async function deleteEntry(event, id) {
     event.preventDefault();
+
+    const confirmation = confirm(
+      "möchtest du diesen Eintrag wirklich löschen?"
+    );
+    if (confirmation) {
+      await fetch("/api/entries/" + id, {
+        method: "DELETE",
+      });
+      async function performFetch() {
+        const allEntriesFromDatabase = await fetchData();
+        onAllEntries(allEntriesFromDatabase);
+      }
+      performFetch();
+    }
+  }
+
+  async function handleUpdateEntry(updatedEntry, id) {
     await fetch("/api/entries/" + id, {
-      method: "DELETE",
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedEntry),
     });
     async function performFetch() {
       const allEntriesFromDatabase = await fetchData();
@@ -89,6 +110,7 @@ export default function CalendarPage({ allEntries = [], onAllEntries }) {
               onUpdateEntries={updateEntries}
               onHideForm={handleHideForm}
               onDeleteEntry={deleteEntry}
+              onUpdateEntry={handleUpdateEntry}
             />
           )}
           <ButtonContainer>
@@ -192,6 +214,11 @@ const StyledCalendarContainer = styled.section`
   }
 
   // classes for dynamic background
+
+  .darkorchid {
+    background: darkorchid;
+    color: white;
+  }
   .hotpink {
     background: hotpink;
     color: white;
@@ -215,13 +242,6 @@ const StyledCalendarContainer = styled.section`
   .lightgrey {
     background: lightgrey;
     color: black;
-  }
-  .lightgreen {
-    background: lightgreen;
-  }
-
-  .yellow {
-    background: yellow;
   }
 
   ////

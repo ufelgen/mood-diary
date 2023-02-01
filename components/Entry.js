@@ -1,7 +1,12 @@
 import styled from "styled-components";
 import format from "date-fns/format";
 
-export default function Entry({ currentEntry, onDeleteEntry, onHideForm }) {
+export default function Entry({
+  currentEntry,
+  onDeleteEntry,
+  onHideForm,
+  onToggleEditMode,
+}) {
   const mood = currentEntry?.mood.split("-")[0];
   const colour = currentEntry?.mood.split("-")[1];
 
@@ -15,7 +20,7 @@ export default function Entry({ currentEntry, onDeleteEntry, onHideForm }) {
       <p>Am {format(new Date(currentEntry?.date), "dd.MM.yyyy")}</p>
       <p
         style={{ backgroundColor: colour }}
-        className={colour == "black" ? "dark" : ""}
+        className={colour == "black" || colour == "darkorchid" ? "dark" : ""}
       >
         habe ich mich {mood} gefühlt,
       </p>
@@ -25,6 +30,7 @@ export default function Entry({ currentEntry, onDeleteEntry, onHideForm }) {
         <button onClick={(event) => handleDelete(event, currentEntry?.id)}>
           Eintrag löschen
         </button>
+        <button onClick={onToggleEditMode}>Eintrag bearbeiten</button>
       </div>
     </StyledEntry>
   );
@@ -50,7 +56,7 @@ const StyledEntry = styled.section`
 
   button {
     padding: 0.3rem;
-    margin-left: 0.7rem;
+    margin-left: 1.3rem;
     margin-right: -0.5rem;
     background-color: hotpink;
     color: white;
