@@ -5,6 +5,8 @@ import Footer from "../components/Footer";
 import { getGreeting } from "../helpers/getGreeting";
 import styled from "styled-components";
 import { useState } from "react";
+import format from "date-fns/format";
+import dynamic from "next/dynamic";
 
 export default function Home() {
   const [image, setImage] = useState(false);
@@ -14,8 +16,19 @@ export default function Home() {
 
   const greeting = getGreeting();
 
+  const today = format(new Date(), "dd-MM");
+
+  const { height, width } = dynamic(() => import("../helpers/useWindowSize"), {
+    ssr: false,
+  });
+
+  const Confetti = dynamic(() => import("react-confetti"), {
+    ssr: false,
+  });
+
   return (
     <StyledMain>
+      {today === "10-02" && <Confetti height={height} width={width} />}
       {image ? (
         <RandomImage randomImage={handleRandomImage} />
       ) : (
