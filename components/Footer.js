@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { RxCalendar } from "react-icons/rx";
 import { VscHome } from "react-icons/vsc";
+import { FaLightbulb } from "react-icons/fa";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
@@ -9,14 +10,19 @@ export default function Footer() {
 
   return (
     <StyledFooter>
-      {pathname === "/calendar" ? (
+      {pathname === "/calendar" || pathname === "/advice" ? (
         <Link href={"/"}>
           <StyledHomeIcon aria-label="return to main page" />
         </Link>
       ) : (
-        <Link href={"/calendar"}>
-          <StyledCalendarIcon aria-label="go to calendar" />
-        </Link>
+        <>
+          <Link href={"/calendar"}>
+            <StyledCalendarIcon aria-label="go to calendar" />
+          </Link>
+          <Link href={"/advice"}>
+            <StyledIdeaIcon aria-label="go to advice page" />
+          </Link>
+        </>
       )}
     </StyledFooter>
   );
@@ -28,12 +34,17 @@ const StyledFooter = styled.footer`
   width: 100%;
   height: 10vh;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   background-color: black;
 `;
 
 const StyledCalendarIcon = styled(RxCalendar)`
+  color: var(--primary);
+  font-size: 7.7vh;
+`;
+
+const StyledIdeaIcon = styled(FaLightbulb)`
   color: var(--primary);
   font-size: 7.7vh;
 `;

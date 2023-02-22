@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export default function RandomImageButton({ randomImage }) {
-  return <StyledButton onClick={randomImage}>hier klicken!</StyledButton>;
+export default function RandomButton({ buttonFunction }) {
+  return <StyledButton onClick={buttonFunction}>hier klicken!</StyledButton>;
 }
 
 const StyledButton = styled.button`
@@ -12,4 +12,5 @@ const StyledButton = styled.button`
   border-radius: 5px;
   font-weight: bold;
   font-size: 40px;
+  margin-top: 10vh;
 `;

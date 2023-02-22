@@ -1,4 +1,4 @@
-import RandomImageButton from "../components/RandomImageButton";
+import RandomButton from "../components/RandomImageButton";
 import RandomImage from "../components/RandomImage";
 import Greeting from "../components/Greeting";
 import Footer from "../components/Footer";
@@ -34,7 +34,7 @@ export default function Home() {
       ) : (
         <>
           <Greeting greeting={greeting} />
-          <RandomImageButton randomImage={handleRandomImage} />
+          <RandomButton buttonFunction={handleRandomImage} />
         </>
       )}
       <Footer />
