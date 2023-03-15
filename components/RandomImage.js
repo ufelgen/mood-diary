@@ -4,10 +4,11 @@ import Image from "next/image";
 export default function RandomImage({ randomImage }) {
   function getRandomNumber() {
     // adjust number according to number of images in collection
-    return Math.floor(Math.random() * 141);
+    return Math.floor(Math.random() * 75);
   }
 
-  const url = "https://source.unsplash.com/collection/894/" + getRandomNumber();
+  const url =
+    "https://source.unsplash.com/collection/8014082/" + getRandomNumber();
   // adjust collection number
 
   return (
