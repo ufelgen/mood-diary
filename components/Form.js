@@ -1,8 +1,15 @@
 import styled from "styled-components";
 import format from "date-fns/format";
 import { colours } from "../helpers/colours";
+import useSound from "use-sound";
 
 export default function Form({ date, onUpdateEntries, onHideForm }) {
+  function getRandomNumber() {
+    return Math.floor(Math.random() * 6);
+  }
+  const soundPath = "/assets/fart-" + getRandomNumber() + ".wav";
+  const [play] = useSound(soundPath);
+
   function handleSubmitForm(event) {
     event.preventDefault();
     const newEntry = {
@@ -14,6 +21,10 @@ export default function Form({ date, onUpdateEntries, onHideForm }) {
 
     onUpdateEntries(newEntry);
     onHideForm();
+
+    if (event.target.elements.colour.value === "schlecht-black") {
+      play();
+    }
   }
   return (
     <StyledForm onSubmit={handleSubmitForm}>
