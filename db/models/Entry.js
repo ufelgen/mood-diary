@@ -8,6 +8,7 @@ const entrySchema = new Schema({
   mood: { type: String },
   good: { type: String },
   bad: { type: String },
+  period: { type: Boolean },
 });
 
 const Entry = mongoose.models.Entry || mongoose.model("Entry", entrySchema);

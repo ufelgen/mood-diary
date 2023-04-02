@@ -26,6 +26,7 @@ export default function Entry({
       </p>
       <p>denn das war gut: {currentEntry?.good}</p>
       <p>und das war doof: {currentEntry?.bad}</p>
+      {currentEntry?.period && <p>Außerdem hatte ich meine Tage.</p>}
       <div>
         <button onClick={(event) => handleDelete(event, currentEntry?.id)}>
           Eintrag löschen

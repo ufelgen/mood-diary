@@ -22,6 +22,7 @@ export default async function handler(req, res) {
         mood: entry.mood,
         good: entry.good,
         bad: entry.bad,
+        period: entry.period,
       };
     });
 

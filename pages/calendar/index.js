@@ -6,6 +6,8 @@ import BelowCalendar from "../../components/BelowCalendar";
 import { useState } from "react";
 import fetchData from "../../helpers/fetchData";
 import { useSession, signIn, signOut } from "next-auth/react";
+import { Badge } from "@mui/material";
+import { GiChocolateBar } from "react-icons/gi";
 
 export default function CalendarPage({ allEntries = [], onAllEntries }) {
   const { data: session } = useSession();
@@ -91,6 +93,30 @@ export default function CalendarPage({ allEntries = [], onAllEntries }) {
     setShowForm(false);
   }
 
+  const tileContent = ({ date, view }) => {
+    if (view === "month") {
+      const selectedDay = date.getDate();
+      const selectedMonth = date.getMonth() + 1;
+      const selectedYear = date.getFullYear();
+
+      const hasPeriod = allEntries.find((entry) => {
+        const day = entry.date.split("-")[2];
+        const month = entry.date.split("-")[1];
+        const year = entry.date.split("-")[0];
+        return (
+          selectedDay == day &&
+          selectedMonth == month &&
+          selectedYear == year &&
+          entry.period
+        );
+      });
+
+      if (hasPeriod) {
+        return <Badge overlap="circular" badgeContent={<GiChocolateBar />} />;
+      }
+    }
+  };
+
   return (
     <StyledCalenderPage>
       {session ? (
@@ -99,6 +125,7 @@ export default function CalendarPage({ allEntries = [], onAllEntries }) {
             <Calendar
               locale="de-DE"
               tileClassName={tileClassName}
+              tileContent={tileContent}
               value={date}
               onClickDay={(value) => handleShowForm(value)}
             />
@@ -211,6 +238,12 @@ const StyledCalendarContainer = styled.section`
     .react-calendar__tile {
       max-width: initial !important;
     }
+  }
+
+  .MuiBadge-badge {
+    position: absolute;
+    top: 9px;
+    right: -6px;
   }
 
   // classes for dynamic background

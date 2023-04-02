@@ -14,6 +14,7 @@ export default function EditEntry({
       mood: event.target.elements.colour.value,
       good: event.target.elements.good.value,
       bad: event.target.elements.bad.value,
+      period: event.target.elements.period.checked,
     };
 
     onUpdateEntry(updatedEntry, currentEntry?.id);
@@ -48,6 +49,15 @@ export default function EditEntry({
         name="bad"
         defaultValue={currentEntry?.bad}
       />
+      <section>
+        <label htmlFor="period">Außerdem hatte ich meine Tage</label>
+        <input
+          type="checkbox"
+          name="period"
+          value="period"
+          defaultChecked={currentEntry?.period}
+        />
+      </section>
       <div>
         <button type="button" onClick={onToggleEditMode}>
           zurück
@@ -72,6 +82,16 @@ const StyledForm = styled.form`
     flex-direction: row;
     justify-content: flex-end;
     margin: 0.5rem;
+  }
+
+  section {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    label {
+      padding-right: 0.5rem;
+    }
   }
 
   button {
