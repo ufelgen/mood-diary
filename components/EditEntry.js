@@ -4,7 +4,7 @@ import { colours } from "../helpers/colours";
 
 export default function EditEntry({
   currentEntry,
-  onToggleEditMode,
+  toggleEditMode,
   onUpdateEntry,
 }) {
   function handleEditedForm(event) {
@@ -18,7 +18,7 @@ export default function EditEntry({
     };
 
     onUpdateEntry(updatedEntry, currentEntry?.id);
-    onToggleEditMode();
+    toggleEditMode();
   }
   return (
     <StyledForm onSubmit={handleEditedForm}>
@@ -59,7 +59,7 @@ export default function EditEntry({
         />
       </section>
       <div>
-        <button type="button" onClick={onToggleEditMode}>
+        <button type="button" onClick={toggleEditMode}>
           zurück
         </button>
         <button type="submit">Änderungen speichern</button>

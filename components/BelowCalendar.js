@@ -12,22 +12,19 @@ export default function BelowCalendar({
   onHideForm,
   onDeleteEntry,
   onUpdateEntry,
+  editing,
+  toggleEditMode,
 }) {
-  const [editing, setEditing] = useState(false);
   const currentEntry = allEntries.find(
     (entry) => entry.date == format(new Date(date), "yyyy-MM-dd")
   );
-
-  function toggleEditMode() {
-    setEditing(!editing);
-  }
 
   return (
     <StyledContainer>
       {currentEntry?.mood && editing && (
         <EditEntry
           currentEntry={currentEntry}
-          onToggleEditMode={toggleEditMode}
+          toggleEditMode={toggleEditMode}
           onUpdateEntry={onUpdateEntry}
         />
       )}

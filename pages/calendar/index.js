@@ -3,17 +3,22 @@ import "react-calendar/dist/Calendar.css";
 import styled from "styled-components";
 import Footer from "../../components/Footer";
 import BelowCalendar from "../../components/BelowCalendar";
-import { useState } from "react";
-import fetchData from "../../helpers/fetchData";
+import { fetchEntryData } from "../../helpers/fetchData";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { Badge } from "@mui/material";
 import { GiChocolateBar } from "react-icons/gi";
 
-export default function CalendarPage({ allEntries = [], onAllEntries }) {
+export default function CalendarPage({
+  allEntries = [],
+  onAllEntries,
+  showForm,
+  onShowForm,
+  onHideForm,
+  date,
+  editing,
+  toggleEditMode,
+}) {
   const { data: session } = useSession();
-
-  const [date, setDate] = useState(new Date());
-  const [showForm, setShowForm] = useState(false);
 
   async function updateEntries(newEntry) {
     await fetch("/api/entries", {
@@ -24,7 +29,7 @@ export default function CalendarPage({ allEntries = [], onAllEntries }) {
       body: JSON.stringify(newEntry),
     });
     async function performFetch() {
-      const allEntriesFromDatabase = await fetchData();
+      const allEntriesFromDatabase = await fetchEntryData();
       onAllEntries(allEntriesFromDatabase);
     }
     performFetch();
@@ -41,7 +46,7 @@ export default function CalendarPage({ allEntries = [], onAllEntries }) {
         method: "DELETE",
       });
       async function performFetch() {
-        const allEntriesFromDatabase = await fetchData();
+        const allEntriesFromDatabase = await fetchEntryData();
         onAllEntries(allEntriesFromDatabase);
       }
       performFetch();
@@ -57,7 +62,7 @@ export default function CalendarPage({ allEntries = [], onAllEntries }) {
       body: JSON.stringify(updatedEntry),
     });
     async function performFetch() {
-      const allEntriesFromDatabase = await fetchData();
+      const allEntriesFromDatabase = await fetchEntryData();
       onAllEntries(allEntriesFromDatabase);
     }
     performFetch();
@@ -83,15 +88,6 @@ export default function CalendarPage({ allEntries = [], onAllEntries }) {
       }
     }
   };
-
-  function handleShowForm(date) {
-    setDate(date);
-    setShowForm(true);
-  }
-
-  function handleHideForm() {
-    setShowForm(false);
-  }
 
   const tileContent = ({ date, view }) => {
     if (view === "month") {
@@ -127,7 +123,7 @@ export default function CalendarPage({ allEntries = [], onAllEntries }) {
               tileClassName={tileClassName}
               tileContent={tileContent}
               value={date}
-              onClickDay={(value) => handleShowForm(value)}
+              onClickDay={(value) => onShowForm(value)}
             />
           </StyledCalendarContainer>
           {showForm && (
@@ -135,9 +131,11 @@ export default function CalendarPage({ allEntries = [], onAllEntries }) {
               allEntries={allEntries}
               date={date}
               onUpdateEntries={updateEntries}
-              onHideForm={handleHideForm}
+              onHideForm={onHideForm}
               onDeleteEntry={deleteEntry}
               onUpdateEntry={handleUpdateEntry}
+              editing={editing}
+              toggleEditMode={toggleEditMode}
             />
           )}
           <ButtonContainer>

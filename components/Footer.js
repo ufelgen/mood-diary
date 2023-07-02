@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { RxCalendar } from "react-icons/rx";
 import { VscHome } from "react-icons/vsc";
 import { FaLightbulb } from "react-icons/fa";
+import { BiNotepad } from "react-icons/bi";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
@@ -10,7 +11,9 @@ export default function Footer() {
 
   return (
     <StyledFooter>
-      {pathname === "/calendar" || pathname === "/advice" ? (
+      {pathname === "/calendar" ||
+      pathname === "/advice" ||
+      pathname === "/kanban" ? (
         <Link href={"/"}>
           <StyledHomeIcon aria-label="return to main page" />
         </Link>
@@ -21,6 +24,9 @@ export default function Footer() {
           </Link>
           <Link href={"/advice"}>
             <StyledIdeaIcon aria-label="go to advice page" />
+          </Link>
+          <Link href={"/kanban"}>
+            <StyledToDoIcon aria-label="go to to do list page" />
           </Link>
         </>
       )}
@@ -50,6 +56,11 @@ const StyledIdeaIcon = styled(FaLightbulb)`
 `;
 
 const StyledHomeIcon = styled(VscHome)`
+  color: var(--primary);
+  font-size: 7.7vh;
+`;
+
+const StyledToDoIcon = styled(BiNotepad)`
   color: var(--primary);
   font-size: 7.7vh;
 `;
