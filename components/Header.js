@@ -7,6 +7,11 @@ import { BiUserCircle, BiLogIn, BiLogOut } from "react-icons/bi";
 export default function Header() {
   const { pathname } = useRouter();
   const { data: session } = useSession();
+
+  function handleSignIn(event) {
+    event.preventDefault();
+    signIn();
+  }
   return (
     <StyledHeader>
       {session ? (
@@ -14,7 +19,7 @@ export default function Header() {
           <StyledLogoutIcon />
         </button>
       ) : (
-        <button onClick={() => signIn()}>
+        <button onClick={(event) => handleSignIn(event)}>
           <StyledLoginIcon />
         </button>
       )}
