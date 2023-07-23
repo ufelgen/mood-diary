@@ -1,9 +1,7 @@
-import styled from "styled-components";
 import format from "date-fns/format";
-import Form from "./Form";
+import NewEntry from "./NewEntry";
 import Entry from "./Entry";
 import EditEntry from "./EditEntry";
-import { useState } from "react";
 
 export default function BelowCalendar({
   allEntries,
@@ -20,7 +18,7 @@ export default function BelowCalendar({
   );
 
   return (
-    <StyledContainer>
+    <>
       {currentEntry?.mood && editing && (
         <EditEntry
           currentEntry={currentEntry}
@@ -37,16 +35,12 @@ export default function BelowCalendar({
         />
       )}
       {!currentEntry?.mood && !editing && (
-        <Form
+        <NewEntry
           date={date}
           onUpdateEntries={onUpdateEntries}
           onHideForm={onHideForm}
         />
       )}
-    </StyledContainer>
+    </>
   );
 }
-
-const StyledContainer = styled.section`
-  margin-bottom: 10vh;
-`;

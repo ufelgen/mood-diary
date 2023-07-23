@@ -1,3 +1,5 @@
+//not in use
+
 import styled from "styled-components";
 import Image from "next/image";
 import { useFetch } from "../helpers/useFetch";

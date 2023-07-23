@@ -38,7 +38,7 @@ export default function Entry({
 }
 
 const StyledEntry = styled.section`
-  margin: 0rem 2rem 2rem 2rem;
+  margin: 0rem 2rem;
   padding: 1rem;
   background-color: var(--secondary);
   display: flex;

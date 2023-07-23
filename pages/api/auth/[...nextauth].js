@@ -11,12 +11,12 @@ const providers = [
     },
     async authorize(credentials) {
       if (
-        credentials.username === "super-cute-otter" &&
-        credentials.password === "super-cute-otter"
+        credentials.username === "test-user" &&
+        credentials.password === "test-user"
       ) {
         return {
-          name: "Cute Otter",
-          email: "test@example.com",
+          name: "Test User",
+          email: "test-user@example.com",
         };
       } else {
         return null;

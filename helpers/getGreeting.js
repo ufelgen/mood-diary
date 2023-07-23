@@ -1,8 +1,8 @@
 import format from "date-fns/format";
 
-export function getGreeting() {
-  const today = format(new Date(), "dd-MM");
-  if (today === "10-02") {
+export function getGreeting(userBirthday) {
+  const today = format(new Date(), "MM-dd");
+  if (today === userBirthday) {
     const greeting = "Alles Gute zum Geburtstag";
     return greeting;
   } else if (new Date().getHours() >= 6 && new Date().getHours() < 12) {

@@ -150,7 +150,7 @@ const Task = styled.section`
 
 const ButtonContainer = styled.div`
   position: fixed;
-  top: 3vh;
+  top: 11vh;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -193,7 +193,7 @@ const ButtonContainerForTasks = styled(ButtonContainer)`
 
 const TasksContainer = styled.section`
   position: fixed;
-  top: 10vh;
+  top: 20vh;
   bottom: 20vh;
   overflow-y: scroll;
   width: 100%;

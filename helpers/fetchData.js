@@ -25,3 +25,17 @@ export async function fetchTaskData() {
     console.error(error);
   }
 }
+
+export async function fetchProfileData() {
+  try {
+    const response = await fetch("/api/profiles");
+    if (response.status === 200) {
+      const data = await response.json();
+      return data;
+    } else {
+      return [];
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}

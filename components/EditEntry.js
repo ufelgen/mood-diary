@@ -69,7 +69,7 @@ export default function EditEntry({
 }
 
 const StyledForm = styled.form`
-  margin: 0rem 2rem 5rem 2rem;
+  margin: 0rem 2rem;
   padding: 1rem;
   background-color: var(--primary);
   color: white;
