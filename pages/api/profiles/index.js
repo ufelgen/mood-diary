@@ -25,7 +25,7 @@ export default async function handler(req, res) {
       };
     });
 
-    res.status(200).json(allEntries);
+    res.status(200).json(allProfiles);
   } else if (req.method === "POST") {
     const data = { ...req.body, user: email };
 

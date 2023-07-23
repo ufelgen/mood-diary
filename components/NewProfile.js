@@ -1,6 +1,6 @@
 import { StyledForm } from "../components/Styles";
 
-export default function NewProfile() {
+export default function NewProfile({ saveNewProfile }) {
   function inputUserData(event) {
     event.preventDefault();
     const newProfile = {
@@ -11,6 +11,7 @@ export default function NewProfile() {
     };
 
     console.log(newProfile);
+    saveNewProfile(newProfile);
     event.target.reset();
   }
 
