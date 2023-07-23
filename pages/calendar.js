@@ -158,6 +158,11 @@ const StyledCalenderPage = styled.main`
   overflow-y: scroll;
   width: 100%;
   padding-bottom: 2rem;
+
+  p {
+    text-align: center;
+    margin-top: 40vh;
+  }
 `;
 
 const StyledCalendarContainer = styled.section`

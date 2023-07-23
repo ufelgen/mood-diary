@@ -73,28 +73,32 @@ export default function Profile({
     <>
       <Header />
       <StyledMain>
-        <StyledProfilePage>
-          {userProfile?.firstName ? (
-            <>
-              {editing ? (
-                <NewProfile
-                  userProfile={userProfile}
-                  toggleEditMode={toggleEditMode}
-                  editing={editing}
-                  onUpdateProfile={handleUpdateProfile}
-                />
-              ) : (
-                <UserProfile
-                  userProfile={userProfile}
-                  toggleEditMode={toggleEditMode}
-                  deleteProfile={deleteProfile}
-                />
-              )}
-            </>
-          ) : (
-            <NewProfile saveNewProfile={saveNewProfile} />
-          )}
-        </StyledProfilePage>
+        {session ? (
+          <StyledProfilePage>
+            {userProfile?.firstName ? (
+              <>
+                {editing ? (
+                  <NewProfile
+                    userProfile={userProfile}
+                    toggleEditMode={toggleEditMode}
+                    editing={editing}
+                    onUpdateProfile={handleUpdateProfile}
+                  />
+                ) : (
+                  <UserProfile
+                    userProfile={userProfile}
+                    toggleEditMode={toggleEditMode}
+                    deleteProfile={deleteProfile}
+                  />
+                )}
+              </>
+            ) : (
+              <NewProfile saveNewProfile={saveNewProfile} />
+            )}
+          </StyledProfilePage>
+        ) : (
+          <p>Bitte logge dich ein.</p>
+        )}
       </StyledMain>
       <Footer />
     </>

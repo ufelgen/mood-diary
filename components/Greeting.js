@@ -1,9 +1,39 @@
 import styled from "styled-components";
+import { useSession } from "next-auth/react";
 
-export default function Greeting({ greeting }) {
+export default function Greeting({ greeting, userProfile }) {
+  if (!userProfile) {
+    return null;
+  }
+
+  const { data: session } = useSession();
+
+  function determineDear() {
+    if (userProfile.gender === "female") {
+      const gender = "liebe";
+      return gender;
+    } else if (userProfile.gender === "male") {
+      const gender = "lieber";
+      return gender;
+    } else if (userProfile.gender === "diverse") {
+      const gender = "";
+      return gender;
+    } else {
+      return;
+    }
+  }
+
+  const dear = determineDear();
+
   return (
     <StyledGreeting>
-      {greeting} <br></br> liebe Johanna
+      {userProfile?.firstName ? (
+        <>
+          {greeting}, <br></br> {dear} {userProfile.firstName}
+        </>
+      ) : (
+        <p>was soll das</p>
+      )}
     </StyledGreeting>
   );
 }
