@@ -6,7 +6,7 @@ export default function Greeting({ greeting, userProfile }) {
     return null;
   }
 
-  const { data: session } = useSession();
+  //const { data: session } = useSession();
 
   function determineDear() {
     if (userProfile.gender === "female") {
