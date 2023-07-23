@@ -1,7 +1,14 @@
-## this is an app that I made for my best friend
+#Mood Diary
 
-on the main page, it greets her dynamically corresponding to the time of day. as a special feature, it will wish her a happy birthday, accompanied by confetti, when it's her birthday.
+I originally made this app for my best friend. By popular demand, I now cloned it to be accessible by a greater number of users.
 
-upon button click, the app fetches a random photo from an unsplash collection that I update periodically.
+## features
 
-it also features a calendar page, where it's possible to save good things and bad things for each day. additionally, the mood for the day can be specified and is connected to a background colour for the calendar tile. this way, you have a graphic overview over the moods over time. in order to protect the user's data, to view the calendar page, the user has to sign in and only the signed in user's data are returned from the database.
+* dynamic greeting 
+* random photo collection
+* calendar page with mood diary
+* to do list reflecting a kanban board to keep track of tasks
+* advice page fetching random advice from an API
+* user's data protected by login through github
+
+
