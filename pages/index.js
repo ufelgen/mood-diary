@@ -7,6 +7,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import format from "date-fns/format";
 import dynamic from "next/dynamic";
+import Header from "../components/Header";
 
 export default function Home() {
   const [image, setImage] = useState(false);
@@ -28,6 +29,7 @@ export default function Home() {
 
   return (
     <StyledMain>
+      <Header />
       {today === "10-02" && <Confetti height={height} width={width} />}
       {image ? (
         <RandomImage randomImage={handleRandomImage} />
@@ -49,6 +51,6 @@ const StyledMain = styled.main`
   align-items: center;
   justify-content: center;
   height: 100vh;
-  margin-bottom: 10vh;
+  margin: 10vh 0;
   background: var(--background-gradient);
 `;
