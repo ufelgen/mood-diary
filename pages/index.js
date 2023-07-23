@@ -3,11 +3,11 @@ import RandomImage from "../components/RandomImage";
 import Greeting from "../components/Greeting";
 import Footer from "../components/Footer";
 import { getGreeting } from "../helpers/getGreeting";
-import styled from "styled-components";
 import { useState } from "react";
 import format from "date-fns/format";
 import dynamic from "next/dynamic";
 import Header from "../components/Header";
+import { StyledMain } from "../components/Styles";
 
 export default function Home() {
   const [image, setImage] = useState(false);
@@ -31,26 +31,10 @@ export default function Home() {
     <StyledMain>
       <Header />
       {today === "10-02" && <Confetti height={height} width={width} />}
-      {image ? (
-        <RandomImage randomImage={handleRandomImage} />
-      ) : (
-        <>
-          <Greeting greeting={greeting} />
-          <RandomButton buttonFunction={handleRandomImage} />
-        </>
-      )}
+      <Greeting greeting={greeting} />
+      <RandomImage />
+
       <Footer />
     </StyledMain>
   );
 }
-
-const StyledMain = styled.main`
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  margin: 10vh 0;
-  background: var(--background-gradient);
-`;

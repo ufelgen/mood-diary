@@ -1,12 +1,13 @@
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import styled from "styled-components";
-import Footer from "../../components/Footer";
-import BelowCalendar from "../../components/BelowCalendar";
-import { fetchEntryData } from "../../helpers/fetchData";
+import Footer from "../components/Footer";
+import BelowCalendar from "../components/BelowCalendar";
+import { fetchEntryData } from "../helpers/fetchData";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { Badge } from "@mui/material";
 import { GiChocolateBar } from "react-icons/gi";
+import Header from "../components/Header";
 
 export default function CalendarPage({
   allEntries = [],
@@ -115,6 +116,7 @@ export default function CalendarPage({
 
   return (
     <StyledCalenderPage>
+      <Header />
       {session ? (
         <>
           <StyledCalendarContainer>
@@ -138,16 +140,9 @@ export default function CalendarPage({
               toggleEditMode={toggleEditMode}
             />
           )}
-          <ButtonContainer>
-            <StyledLogoutButton onClick={signOut}>abmelden</StyledLogoutButton>
-          </ButtonContainer>
         </>
       ) : (
-        <ButtonContainer>
-          <StyledLoginButton onClick={() => signIn()}>
-            anmelden
-          </StyledLoginButton>
-        </ButtonContainer>
+        <p>Bitte logge dich ein.</p>
       )}
 
       <Footer />
@@ -155,31 +150,14 @@ export default function CalendarPage({
   );
 }
 
-const StyledLoginButton = styled.button`
-  padding: 1rem;
-  margin: 1rem;
-  align-self: center;
-  justify-self: center;
-  color: white;
-  background-color: var(--primary);
-  border: none;
-  border-radius: 5px;
-  font-weight: bold;
-  font-size: 2rem;
-`;
-
-const StyledLogoutButton = styled(StyledLoginButton)`
-  font-size: 1rem;
-`;
-const ButtonContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
 const StyledCalenderPage = styled.main`
-  height: 100vh;
-  margin-bottom: 20vh;
   background: var(--background-gradient-2);
+  position: fixed;
+  top: 10vh;
+  bottom: 10vh;
+  overflow-y: scroll;
+  width: 100%;
+  padding-bottom: 2rem;
 `;
 
 const StyledCalendarContainer = styled.section`

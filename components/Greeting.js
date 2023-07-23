@@ -15,4 +15,5 @@ const StyledGreeting = styled.h1`
   padding: 30px;
   margin-bottom: 177px;
   text-align: center;
+  z-index: 5;
 `;

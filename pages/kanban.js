@@ -1,15 +1,16 @@
 import styled from "styled-components";
-import Footer from "../../components/Footer";
+import Footer from "../components/Footer";
 import { useState } from "react";
-import { fetchTaskData } from "../../helpers/fetchData";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { fetchTaskData } from "../helpers/fetchData";
+import { useSession } from "next-auth/react";
 import { AiFillPlusCircle } from "react-icons/ai";
-import { StyledPageMain } from "../../components/Styles";
+import { StyledPageMain } from "../components/Styles";
 import dynamic from "next/dynamic";
 
-import NewTask from "../../components/NewTask";
-import TaskPage from "../../components/TaskPage";
-import BeProud from "../../components/BeProud";
+import NewTask from "../components/NewTask";
+import TaskPage from "../components/TaskPage";
+import BeProud from "../components/BeProud";
+import Header from "../components/Header";
 
 export default function KanbanBoardPage({
   allTasks = [],
@@ -79,12 +80,9 @@ export default function KanbanBoardPage({
     performFetch();
   }
 
-  const { height, width } = dynamic(
-    () => import("../../helpers/useWindowSize"),
-    {
-      ssr: false,
-    }
-  );
+  const { height, width } = dynamic(() => import("../helpers/useWindowSize"), {
+    ssr: false,
+  });
 
   const Confetti = dynamic(() => import("react-confetti"), {
     ssr: false,
@@ -101,6 +99,7 @@ export default function KanbanBoardPage({
 
   return (
     <StyledPageMain>
+      <Header />
       {session ? (
         <>
           {celebration && (
@@ -128,42 +127,14 @@ export default function KanbanBoardPage({
               />
             )}
           </>
-
-          <StyledLogoutButton onClick={() => signOut()}>
-            abmelden
-          </StyledLogoutButton>
         </>
       ) : (
-        <StyledLoginButton onClick={() => signIn()}>anmelden</StyledLoginButton>
+        <p>Bitte logge dich ein.</p>
       )}
-
       <Footer />
     </StyledPageMain>
   );
 }
-
-const StyledLoginButton = styled.button`
-  padding: 1rem;
-  margin: 1rem;
-  align-self: center;
-  justify-self: center;
-  color: white;
-  background-color: var(--primary);
-  border: none;
-  border-radius: 5px;
-  font-weight: bold;
-  font-size: 2rem;
-
-  position: fixed;
-  bottom: 11vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const StyledLogoutButton = styled(StyledLoginButton)`
-  font-size: 1rem;
-`;
 
 const StyledAddButton = styled.button`
   background-color: transparent;

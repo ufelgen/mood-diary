@@ -18,9 +18,11 @@ export default function Header() {
           <StyledLoginIcon />
         </button>
       )}
-      <Link href={"/profile"}>
-        <StyledProfileIcon aria-label="go to profile page" />
-      </Link>
+      {pathname !== "/profile" && (
+        <Link href={"/profile"}>
+          <StyledProfileIcon aria-label="go to profile page" />
+        </Link>
+      )}
     </StyledHeader>
   );
 }
@@ -34,6 +36,7 @@ const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   background-color: black;
+  padding: 5vw;
 
   button {
     border: none;

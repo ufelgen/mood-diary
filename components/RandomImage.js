@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 
 export default function RandomImage({ randomImage }) {
   function getRandomNumber() {
@@ -11,46 +11,19 @@ export default function RandomImage({ randomImage }) {
     "https://source.unsplash.com/collection/2022043/" + getRandomNumber();
   // adjust collection number
 
+  const { height, width } = dynamic(() => import("../helpers/useWindowSize"), {
+    ssr: false,
+  });
+
   return (
-    <StyledImagePage>
-      <StyledImageContainer>
-        <Image
-          src={url}
-          alt="cute animal"
-          layout="fill"
-          objectFit="cover"
-          priority
-        />{" "}
-      </StyledImageContainer>
-      <button onClick={randomImage}>zurück</button>
-    </StyledImagePage>
+    <Image
+      src={url}
+      alt="awesome picture"
+      fill
+      height={height}
+      width={width}
+      objectFit="cover"
+      priority
+    />
   );
 }
-
-const StyledImageContainer = styled.div`
-  width: 300px;
-  height: 300px;
-  border-color: black;
-  position: relative;
-`;
-
-const StyledImagePage = styled.section`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  button {
-    background-color: black;
-    color: white;
-    padding: 1rem;
-    border: 1px solid darkmagenta;
-    border-radius: 5px;
-    font-weight: bold;
-    font-size: 20px;
-    margin-top: 20px;
-    width: 50%;
-    position: absolute;
-    bottom: -100px;
-  }
-`;

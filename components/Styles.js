@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledForm = styled.form`
-  margin: 0rem 2rem 5rem 2rem;
+  margin: 0rem 2rem;
   padding: 1rem;
   background-color: var(--primary);
   color: white;
@@ -38,7 +38,18 @@ export const StyledForm = styled.form`
 
 export const StyledPageMain = styled.main`
   position: relative;
-  height: 100vh;
-  margin-bottom: 20vh;
+  height: 80vh;
+  margin: 10vh 0;
   background: var(--background-gradient-2);
+`;
+
+export const StyledMain = styled.main`
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  margin: 10vh 0;
+  background: var(--background-gradient);
 `;
