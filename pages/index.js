@@ -19,8 +19,6 @@ export default function Home({ profile }) {
     (profile) => profile.user === session?.user.email
   );
 
-  console.log("userProfile", userProfile);
-
   const userBirthday = userProfile?.birthday.slice(5);
 
   const greeting = getGreeting(userBirthday);

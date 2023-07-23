@@ -32,7 +32,7 @@ export default function Greeting({ greeting, userProfile }) {
           {greeting}, <br></br> {dear} {userProfile.firstName}
         </>
       ) : (
-        <p>was soll das</p>
+        { greeting }
       )}
     </StyledGreeting>
   );

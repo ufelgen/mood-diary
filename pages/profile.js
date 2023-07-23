@@ -107,11 +107,13 @@ export default function Profile({
 
 const StyledProfilePage = styled.article`
   position: fixed;
-  height: 60vh;
+  height: auto;
   top: 20vh;
   width: 80vw;
   left: 10vw;
   background-color: lightgrey;
   border-radius: 5px;
   padding: 0.5rem;
+  display: flex;
+  justify-content: center;
 `;

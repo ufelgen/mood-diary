@@ -41,11 +41,6 @@ export const StyledPageMain = styled.main`
   height: 80vh;
   margin: 10vh 0;
   background: var(--background-gradient-2);
-
-  p {
-    text-align: center;
-    padding-top: 40vh;
-  }
 `;
 
 export const StyledMain = styled.main`

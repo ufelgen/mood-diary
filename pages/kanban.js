@@ -129,7 +129,7 @@ export default function KanbanBoardPage({
           </>
         </>
       ) : (
-        <p>Bitte logge dich ein.</p>
+        <StyledP>Bitte logge dich ein.</StyledP>
       )}
       <Footer />
     </StyledPageMain>
@@ -145,4 +145,9 @@ const StyledAddButton = styled.button`
   right: 1rem;
   border: none;
   z-index: 5;
+`;
+
+const StyledP = styled.p`
+  text-align: center;
+  padding-top: 40vh;
 `;
