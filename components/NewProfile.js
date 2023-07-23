@@ -1,6 +1,13 @@
 import { StyledForm } from "../components/Styles";
+import styled from "styled-components";
 
-export default function NewProfile({ saveNewProfile }) {
+export default function NewProfile({
+  saveNewProfile,
+  userProfile,
+  toggleEditMode,
+  editing,
+  onUpdateProfile,
+}) {
   function inputUserData(event) {
     event.preventDefault();
     const newProfile = {
@@ -10,19 +17,39 @@ export default function NewProfile({ saveNewProfile }) {
       birthday: event.target.elements.birthday.value,
     };
 
-    console.log(newProfile);
-    saveNewProfile(newProfile);
+    if (editing) {
+      onUpdateProfile(newProfile, userProfile.id);
+      toggleEditMode();
+    } else {
+      saveNewProfile(newProfile);
+    }
+
     event.target.reset();
   }
 
   return (
     <StyledForm onSubmit={(event) => inputUserData(event)}>
       <label htmlFor="firstName">Vorname: </label>
-      <input id="firstName" name="firstName" required />
+      <input
+        id="firstName"
+        name="firstName"
+        defaultValue={userProfile?.firstName}
+        required
+      />
       <label htmlFor="lastName">Nachname: </label>
-      <input id="lastName" name="lastName" required />
+      <input
+        id="lastName"
+        name="lastName"
+        defaultValue={userProfile?.lastName}
+        required
+      />
       <label htmlFor="gender">Geschlecht: </label>
-      <select id="gender" name="gender" required>
+      <select
+        id="gender"
+        name="gender"
+        defaultValue={userProfile?.gender}
+        required
+      >
         <option value="" disabled>
           bitte wählen
         </option>
@@ -32,10 +59,25 @@ export default function NewProfile({ saveNewProfile }) {
         <option value="notSpecified">keine Angabe</option>
       </select>
       <label htmlFor="birthday" required>
-        Geburtstag:{" "}
+        Geburtstag:
       </label>
-      <input type="date" id="birthday" name="birthday" />
-      <button type="submit">speichern</button>
+      <input
+        type="date"
+        id="birthday"
+        name="birthday"
+        defaultValue={userProfile?.birthday}
+      />
+      <div>
+        {editing && (
+          <button type="button" onClick={toggleEditMode}>
+            zurück
+          </button>
+        )}
+
+        <button type="submit">speichern</button>
+      </div>
     </StyledForm>
   );
 }
+
+const NewProfileForm = styled(StyledForm)``;
