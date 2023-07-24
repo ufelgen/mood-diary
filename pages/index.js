@@ -7,6 +7,10 @@ import format from "date-fns/format";
 import dynamic from "next/dynamic";
 import Header from "../components/Header";
 import { StyledMain } from "../components/Styles";
+import styled from "styled-components";
+import Fireworks from "@fireworks-js/react";
+import { useState, useEffect } from "react";
+//import { Fireworks, useFireworks } from "@fireworks-js/react";
 
 export default function Home({ profile }) {
   if (!profile) {
@@ -19,6 +23,8 @@ export default function Home({ profile }) {
     (profile) => profile.user === session?.user.email
   );
 
+  const [fireworks, setFireworks] = useState(false);
+
   const userBirthday = userProfile?.birthday.slice(5);
 
   const greeting = getGreeting(userBirthday);
@@ -29,14 +35,29 @@ export default function Home({ profile }) {
     ssr: false,
   });
 
-  const Confetti = dynamic(() => import("react-confetti"), {
+  /*   const Confetti = dynamic(() => import("react-confetti"), {
     ssr: false,
   });
+ */
+  const Fireworks = dynamic(() => import("@fireworks-js/react"), {
+    ssr: false,
+  });
+
+  useEffect(() => {
+    setFireworks(true);
+    setTimeout(handleFireworksStop, 7000);
+  }, []);
+
+  function handleFireworksStop() {
+    setFireworks(false);
+  }
 
   return (
     <StyledMain>
       <Header />
-      {today === userBirthday && <Confetti height={height} width={width} />}
+      {today === userBirthday && fireworks && (
+        <StyledFireworks height={height} width={width} />
+      )}
       <Greeting greeting={greeting} userProfile={userProfile} />
       <RandomImage />
 
@@ -44,3 +65,7 @@ export default function Home({ profile }) {
     </StyledMain>
   );
 }
+
+const StyledFireworks = styled(Fireworks)`
+  z-index: 10;
+`;
