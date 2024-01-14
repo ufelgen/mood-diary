@@ -38,12 +38,12 @@ export default function Greeting({ greeting, userProfile }) {
   );
 }
 
-const StyledGreeting = styled.h1`
+const StyledGreeting = styled.h2`
   background-color: darkmagenta;
   color: white;
   border: 1px solid hotpink;
   padding: 30px;
-  margin-bottom: 177px;
+  margin: 20vh 1rem auto 1rem;
   text-align: center;
   z-index: 5;
 `;
