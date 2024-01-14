@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import format from "date-fns/format";
 import Link from "next/link";
 import { beratungsstellen } from "../helpers/beratungsstellen";
+import { Fragment } from "react";
 
 export default function Help() {
   const today = new Date();
@@ -28,8 +29,6 @@ export default function Help() {
 
   const wochentag = getWeekday();
   const uhrzeit = format(today, "HH:mm");
-
-  console.log(today, wochentag, uhrzeit);
 
   const openOnesToday = beratungsstellen.map((stelle) =>
     stelle.openingTimes[0].day === wochentag ||
@@ -63,24 +62,23 @@ export default function Help() {
         }
     )
   );
-  console.log("huhuTesti", huhuTesti);
 
   return (
     <>
       <StyledHelpPage>
         <h2>Heute ist {wochentag},</h2>
         <p>Es ist {uhrzeit}</p>
-        <p>Diese Beratungsstellen sind gerade offen:</p>
+        <p>Diese Stellen sind gerade erreichbar:</p>
         {huhuTesti.map((huhu) =>
           huhu?.map((testi) => {
             return (
-              <>
+              <Fragment key={testi?.name}>
                 {testi?.link && (
                   <StyledStelle>
                     <p>
                       <Link href={testi?.link}>{testi?.name}</Link>
                     </p>
-                    <p>{testi?.phone}</p>
+                    <p>Telefon: {testi?.phone}</p>
                     {testi?.openingTimes?.open && (
                       <p>
                         Heute {testi?.openingTimes?.open} -{" "}
@@ -89,10 +87,17 @@ export default function Help() {
                     )}
                   </StyledStelle>
                 )}
-              </>
+              </Fragment>
             );
           })
         )}
+        <div>
+          {" "}
+          <p>
+            {" "}
+            <Link href="/stellen">Übersicht aller Stellen</Link>
+          </p>
+        </div>
       </StyledHelpPage>
       <Footer />
     </>
@@ -103,7 +108,7 @@ const StyledHelpPage = styled.main`
   background: purple;
   color: white;
   position: fixed;
-  top: 10vh;
+  top: 0;
   bottom: 10vh;
   overflow-y: scroll;
   width: 100%;
@@ -114,10 +119,14 @@ const StyledHelpPage = styled.main`
   h2 {
     text-align: center;
     margin: 0.5rem;
-    //margin-top: 40vh;
+  }
+
+  div {
+    background-color: white;
+    color: purple;
   }
 `;
 
 const StyledStelle = styled.article`
-  border: 1px solid black;
+  border-top: 1px solid black;
 `;

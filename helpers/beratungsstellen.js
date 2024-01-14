@@ -204,19 +204,19 @@ export const beratungsstellen = [
     name: "Berliner Krisendienst",
     link: "https://www.dapberlin.de/wp-content/uploads/2024/01/Psychosoziale-Nothilfenummern-Berlin.pdf",
     openingTimes: [
-      { day: "Montag", open: "0:00", close: "24:00" },
-      { day: "Dienstag", open: "0:00", close: "24:00" },
-      { day: "Mittwoch", open: "0:00", close: "24:00" },
-      { day: "Donnerstag", open: "0:00", close: "24:00" },
-      { day: "Freitag", open: "0:00", close: "24:00" },
-      { day: "Samstag", open: "0:00", close: "24:00" },
-      { day: "Sonntag", open: "0:00", close: "24:00" },
+      { day: "Montag", open: "0", close: "24" },
+      { day: "Dienstag", open: "0", close: "24" },
+      { day: "Mittwoch", open: "0", close: "24" },
+      { day: "Donnerstag", open: "0", close: "24" },
+      { day: "Freitag", open: "0", close: "24" },
+      { day: "Samstag", open: "0", close: "24" },
+      { day: "Sonntag", open: "0", close: "24" },
     ],
     phone: "030 39063 -10, -20, -30, -40, -50, -60, -70, -80, -90",
     isOpenToday: false,
   },
 
-  {
+  /*   {
     name: "test",
     link: "",
     openingTimes: [{ day: "Sonntag", open: "12", close: "15" }],
@@ -232,5 +232,5 @@ export const beratungsstellen = [
     ],
     phone: "Telefonnummer: 12345",
     isOpenToday: false,
-  },
+  }, */
 ];
