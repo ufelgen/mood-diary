@@ -19,8 +19,6 @@ export default function Footer({ profile }) {
     (profile) => profile.user === session?.user.email
   );
 
-  console.log("userProfile", userProfile);
-
   return (
     <StyledFooter>
       {pathname === "/" ? (
@@ -34,7 +32,7 @@ export default function Footer({ profile }) {
           <Link href={"/kanban"}>
             <StyledToDoIcon aria-label="go to to do list page" />
           </Link>
-          {userProfile.user === "flo@example.com" && (
+          {userProfile?.user === "flo@example.com" && (
             <Link href={"/help"}>
               <StyleHelpIcon aria-label="go to help page" />
             </Link>
