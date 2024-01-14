@@ -1,0 +1,236 @@
+export const beratungsstellen = [
+  {
+    name: "Alfred Adler Gesellschaft für Individualpsychologie (AAI)",
+    link: "https://www.aai.berlin/therapiesuche.html",
+    openingTimes: [{ day: "Montag", open: "12", close: "15" }],
+    phone: "03089094412",
+    isOpenToday: false,
+  },
+  {
+    name: "Berliner Akademie für Psychotherapie (BAP)",
+    link: "https://www.bap-berlin.de/standorte/",
+    openingTimes: [
+      { day: "Montag", open: "16", close: "18" },
+      { day: "Dienstag", open: "10", close: "12" },
+      { day: "Mittwoch", open: "16", close: "18" },
+      { day: "Donnerstag", open: "10", close: "12" },
+      { day: "Freitag", open: "10", close: "12" },
+    ],
+    phone: "030209166110",
+    isOpenToday: false,
+  },
+  {
+    name: "Berliner Fortbildungsakademie (BfA)",
+    link: "https://www.berliner-fortbildungs-akademie.de/ansprechpartner/",
+    openingTimes: [
+      { day: "Montag", open: "9", close: "15" },
+      { day: "Dienstag", open: "9", close: "15" },
+      { day: "Mittwoch", open: "9", close: "15" },
+      { day: "Donnerstag", open: "9", close: "15" },
+      { day: "Freitag", open: "9", close: "15" },
+    ],
+    phone: "030992115239",
+    isOpenToday: false,
+  },
+  {
+    name: "Berliner Institut für Psychotherapie und Psychoanalyse e. V. (BIPP)",
+    link: "https://www.bipp-berlin.de/ambulanz-vermittlungsstelle",
+    openingTimes: [
+      { day: "Montag", open: "9:30", close: "11:30" },
+      { day: "Mittwoch", open: "9:30", close: "10:30" },
+      { day: "Donnerstag", open: "9:30", close: "11:30" },
+    ],
+    phone: "03021474678 ",
+    isOpenToday: false,
+  },
+  {
+    name: "Deutsche Akademie für Psychoanalyse e. V. (DAP)",
+    link: "https://www.dapberlin.de/patienten-information/",
+    openingTimes: [
+      { day: "Montag", open: "9", close: "18" },
+      { day: "Dienstag", open: "9", close: "18" },
+      { day: "Mittwoch", open: "9", close: "18" },
+      { day: "Donnerstag", open: "9", close: "18" },
+      { day: "Freitag", open: "9", close: "18" },
+    ],
+    phone: "0303132698",
+    isOpenToday: false,
+  },
+  {
+    name: "Institut für Integrative Psychotherapieausbildung Berlin (IPB) an der Medical School Berlin GmbH",
+    link: "https://www.medicalschool-berlin.de/ambulanz-institut/psychotherapeutische-hochschulambulanz/anmeldung-und-kontakt/",
+    openingTimes: [
+      { day: "Montag", open: "9", close: "15" },
+      { day: "Dienstag", open: "9", close: "15" },
+      { day: "Mittwoch", open: "9", close: "15" },
+      { day: "Donnerstag", open: "9", close: "15" },
+      { day: "Freitag", open: "9", close: "15" },
+    ],
+    phone: "0307668375870",
+    isOpenToday: false,
+  },
+  {
+    name: "Institut für Psychoanalyse, Psychotherapie und Psychosomatik Berlin e. V. (IPB)",
+    link: "https://www.ipb-dpg-berlin.de/cms/therapiesuche/information",
+    openingTimes: [
+      { day: "Montag", open: "10", close: "11" },
+      { day: "Dienstag", open: "17", close: "18" },
+      { day: "Mittwoch", open: "10", close: "11" },
+      { day: "Donnerstag", open: "10", close: "11" },
+      { day: "Freitag", open: "10", close: "11" },
+    ],
+    phone: "0303934858",
+    isOpenToday: false,
+  },
+
+  {
+    name: "Institut für Psychotherapie e. V. (IfP)",
+    link: "https://www.ifp-berlin.de/patientinnen/therapiesuche-erwachsene/",
+    openingTimes: [
+      { day: "Montag", open: "10", close: "12:30" },
+      { day: "Dienstag", open: "16", close: "18:30" },
+      { day: "Mittwoch", open: "10", close: "12:30" },
+      { day: "Freitag", open: "10", close: "12:30" },
+    ],
+    phone: "03084186731",
+    isOpenToday: false,
+  },
+
+  {
+    name: "Institut für Systemische Therapie Berlin",
+    link: "https://www.ist-berlin.org/beratung/beratung-und-therapie#psychotherapeutische-ambulanz",
+    openingTimes: [
+      { day: "Montag", open: "9", close: "18" },
+      { day: "Dienstag", open: "9", close: "18" },
+      { day: "Mittwoch", open: "9", close: "18" },
+      { day: "Donnerstag", open: "9", close: "18" },
+      { day: "Freitag", open: "9", close: "18" },
+    ],
+    phone: "015209171938",
+    isOpenToday: false,
+  },
+
+  {
+    name: "Institut für Tiefenpsychologie, Gruppendynamik und Gruppentherapie e. V. (ITGG)",
+    link: "https://www.itgg-berlin.de/",
+    openingTimes: [
+      { day: "Montag", open: "10:10", close: "11:50" },
+      { day: "Dienstag", open: "15:10", close: "16" },
+      { day: "Donnerstag", open: "16:30", close: "17:20" },
+    ],
+    phone: "03030204150",
+    isOpenToday: false,
+  },
+  {
+    name: "ISTB - Therapie und Organisationsentwicklung GmbH",
+    link: "https://istb-ambulanz.de/",
+    openingTimes: [
+      { day: "Montag", open: "9", close: "15" },
+      { day: "Dienstag", open: "9", close: "15" },
+      { day: "Mittwoch", open: "9", close: "15" },
+      { day: "Donnerstag", open: "9", close: "15" },
+      { day: "Freitag", open: "9", close: "13" },
+    ],
+    phone: "03031168481",
+    isOpenToday: false,
+  },
+
+  {
+    name: "Psychologische Hochschule Berlin – Ausbildungsambulanz",
+    link: "https://www.psychologische-hochschule.de/ambulanzen/sprechzeiten-und-termine/#1638434486922-b275326a-09ee",
+    openingTimes: [
+      { day: "Montag", open: "16", close: "18" },
+      { day: "Dienstag", open: "10", close: "12" },
+      { day: "Mittwoch", open: "16", close: "18" },
+      { day: "Donnerstag", open: "10", close: "12" },
+      { day: "Freitag", open: "10", close: "12" },
+    ],
+    phone: "030209166110",
+    isOpenToday: false,
+  },
+  {
+    name: "Psychologische Hochschule Berlin – Hochschulambulanz",
+    link: "https://www.psychologische-hochschule.de/ambulanzen/sprechzeiten-und-termine/#1638434610762-6e604e34-98aa",
+    openingTimes: [
+      { day: "Montag", open: "9", close: "15:30" },
+      { day: "Dienstag", open: "9", close: "15:30" },
+      { day: "Mittwoch", open: "9", close: "15:30" },
+      { day: "Donnerstag", open: "9", close: "15:30" },
+      { day: "Freitag", open: "9", close: "15:30" },
+    ],
+    phone: "030209166269",
+    isOpenToday: false,
+  },
+
+  {
+    name: "SFU – Sigmund Freud Privatuniversität Berlin",
+    link: "https://www.sfu-berlin.de/de/ambulanz/",
+    openingTimes: [
+      { day: "Montag", open: "10", close: "15" },
+      { day: "Dienstag", open: "10", close: "15" },
+      { day: "Mittwoch", open: "10", close: "15" },
+      { day: "Donnerstag", open: "10", close: "15" },
+      { day: "Freitag", open: "10", close: "15" },
+    ],
+    phone: "030665080710",
+    isOpenToday: false,
+  },
+  {
+    name: "WIPU – Weiterbildungsinstitut der International Psychoanalytic University",
+    link: "https://www.ipu-berlin.de/ambulanz/die-ambulanz/",
+    openingTimes: [
+      { day: "Montag", open: "10:30", close: "12:30" },
+      { day: "Dienstag", open: "13", close: "15" },
+      { day: "Freitag", open: "10:30", close: "12:30" },
+    ],
+    phone: "030300117800",
+    isOpenToday: false,
+  },
+  {
+    name: "Zentrum für Psychotherapie - Psychologisches Institut der Humboldt-Universität zu Berlin GmbH (ZPHU)",
+    link: "https://www.psychology.hu-berlin.de/de/pta/behandlung/kontaktzphu",
+    openingTimes: [
+      { day: "Montag", open: "13", close: "17" },
+      { day: "Dienstag", open: "13", close: "17" },
+      { day: "Mittwoch", open: "13", close: "17" },
+      { day: "Donnerstag", open: "13", close: "17" },
+      { day: "Freitag", open: "10", close: "13" },
+    ],
+    phone: "030209399100",
+    isOpenToday: false,
+  },
+
+  {
+    name: "Berliner Krisendienst",
+    link: "https://www.dapberlin.de/wp-content/uploads/2024/01/Psychosoziale-Nothilfenummern-Berlin.pdf",
+    openingTimes: [
+      { day: "Montag", open: "0", close: "24" },
+      { day: "Dienstag", open: "0", close: "24" },
+      { day: "Mittwoch", open: "0", close: "24" },
+      { day: "Donnerstag", open: "0", close: "24" },
+      { day: "Freitag", open: "0", close: "24" },
+      { day: "Samstag", open: "0", close: "24" },
+      { day: "Sonntag", open: "0", close: "24" },
+    ],
+    phone: "030 39063 -10, -20, -30, -40, -50, -60, -70, -80, -90",
+    isOpenToday: false,
+  },
+
+  /*   {
+    name: "test",
+    link: "",
+    openingTimes: [{ day: "Sonntag", open: "12", close: "15" }],
+    phone: "",
+    isOpenToday: false,
+  },
+  {
+    name: "huhu",
+    link: "www.huhu.com",
+    openingTimes: [
+      { day: "Montag", open: "12", close: "15" },
+      { day: "Sonntag", open: "12", close: "22:30" },
+    ],
+    phone: "Telefonnummer: 12345",
+    isOpenToday: false,
+  }, */
+];

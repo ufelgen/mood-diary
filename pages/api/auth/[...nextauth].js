@@ -18,6 +18,14 @@ const providers = [
           name: "Test User",
           email: "test-user@example.com",
         };
+      } else if (
+        credentials.username === "Flo" &&
+        credentials.password === "!Haus"
+      ) {
+        return {
+          name: "Flo",
+          email: "flo@example.com",
+        };
       } else {
         return null;
       }
