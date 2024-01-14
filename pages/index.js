@@ -61,7 +61,7 @@ export default function Home({ profile }) {
       <Greeting greeting={greeting} userProfile={userProfile} />
       <RandomImage />
 
-      <Footer />
+      <Footer profile={profile} />
     </StyledMain>
   );
 }

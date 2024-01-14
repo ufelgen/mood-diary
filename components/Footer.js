@@ -1,21 +1,29 @@
 import styled from "styled-components";
 import { RxCalendar } from "react-icons/rx";
 import { VscHome } from "react-icons/vsc";
-import { FaLightbulb } from "react-icons/fa";
+import { FaLightbulb, FaHandsHelping } from "react-icons/fa";
 import { BiNotepad } from "react-icons/bi";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
-export default function Footer() {
+export default function Footer({ profile }) {
   const { pathname } = useRouter();
+  if (!profile) {
+    return null;
+  }
+
+  const { data: session } = useSession();
+
+  const userProfile = profile?.find(
+    (profile) => profile.user === session?.user.email
+  );
+
+  console.log("userProfile", userProfile);
 
   return (
     <StyledFooter>
-      {pathname !== "/" ? (
-        <Link href={"/"}>
-          <StyledHomeIcon aria-label="return to main page" />
-        </Link>
-      ) : (
+      {pathname === "/" ? (
         <>
           <Link href={"/calendar"}>
             <StyledCalendarIcon aria-label="go to calendar" />
@@ -25,6 +33,17 @@ export default function Footer() {
           </Link>
           <Link href={"/kanban"}>
             <StyledToDoIcon aria-label="go to to do list page" />
+          </Link>
+          {userProfile.user === "flo@example.com" && (
+            <Link href={"/help"}>
+              <StyleHelpIcon aria-label="go to help page" />
+            </Link>
+          )}
+        </>
+      ) : (
+        <>
+          <Link href={"/"}>
+            <StyledHomeIcon aria-label="return to main page" />
           </Link>
         </>
       )}
@@ -59,6 +78,11 @@ const StyledHomeIcon = styled(VscHome)`
 `;
 
 const StyledToDoIcon = styled(BiNotepad)`
+  color: var(--primary);
+  font-size: 7.7vh;
+`;
+
+const StyleHelpIcon = styled(FaHandsHelping)`
   color: var(--primary);
   font-size: 7.7vh;
 `;
