@@ -20,9 +20,9 @@ export default function Footer({ profile }) {
   );
 
   return (
-    <StyledFooter>
-      {pathname === "/" ? (
-        <>
+    <>
+      {pathname === "/" && (
+        <StyledFooter>
           <Link href={"/calendar"}>
             <StyledCalendarIcon aria-label="go to calendar" />
           </Link>
@@ -37,15 +37,16 @@ export default function Footer({ profile }) {
               <StyleHelpIcon aria-label="go to help page" />
             </Link>
           )}
-        </>
-      ) : (
-        <>
+        </StyledFooter>
+      )}
+      {pathname !== "/" && (
+        <StyledFooter>
           <Link href={"/"}>
             <StyledHomeIcon aria-label="return to main page" />
           </Link>
-        </>
+        </StyledFooter>
       )}
-    </StyledFooter>
+    </>
   );
 }
 

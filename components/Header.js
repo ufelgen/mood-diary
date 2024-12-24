@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { BiUserCircle, BiLogIn, BiLogOut } from "react-icons/bi";
+import { VscHome } from "react-icons/vsc";
 
 export default function Header() {
   const { pathname } = useRouter();
@@ -22,6 +23,11 @@ export default function Header() {
         <button onClick={(event) => handleSignIn(event)}>
           <StyledLoginIcon />
         </button>
+      )}
+      {pathname !== "/" && (
+        <Link href={"/"}>
+          <StyledHomeIcon aria-label="return to main page" />
+        </Link>
       )}
       {pathname !== "/profile" && (
         <Link href={"/profile"}>
@@ -60,6 +66,11 @@ const StyledLoginIcon = styled(BiLogIn)`
 `;
 
 const StyledLogoutIcon = styled(BiLogOut)`
+  color: var(--primary);
+  font-size: 7.7vh;
+`;
+
+const StyledHomeIcon = styled(VscHome)`
   color: var(--primary);
   font-size: 7.7vh;
 `;
