@@ -1,15 +1,10 @@
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import RandomImageFetch from "./RandomImageFetch";
 
-export default function RandomImage({ randomImage }) {
-  function getRandomNumber() {
-    // adjust number according to number of images in collection
-    return Math.floor(Math.random() * 405);
-  }
-
-  const url =
-    "https://source.unsplash.com/collection/2022043/" + getRandomNumber();
-  // adjust collection number
+export default function RandomImage() {
+  const imageData = RandomImageFetch();
+  const url = imageData?.urls?.regular;
 
   const { height, width } = dynamic(() => import("../helpers/useWindowSize"), {
     ssr: false,
